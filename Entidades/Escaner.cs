@@ -82,11 +82,6 @@ namespace Entidades
             return false;
         }
 
-
-
-        public static bool operator +(Escaner e1, Documento d)
-        {
-        }
     }
 
     enum Departamento
