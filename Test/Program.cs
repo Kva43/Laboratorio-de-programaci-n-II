@@ -1,5 +1,3 @@
-﻿using System;
-using System.Text;
 using Entidades;
 
 namespace Test
