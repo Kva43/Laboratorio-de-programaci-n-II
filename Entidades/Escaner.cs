@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    internal class Escaner
+    public class Escaner
     {
         private List<Documento> listaDocumentos;
         private Departamento locacion;
@@ -43,14 +43,13 @@ namespace Entidades
             }
         }
 
-        public static bool operator !=(Escaner e1, Documento d)
+        public static bool operator !=(Escaner e, Documento d)
         {
-            return !(e1 == d);
+            return !(e == d);
         }
 
         public static bool operator ==(Escaner e, Documento d)
         {
-            // Itera a través de la lista de documentos del escáner
             foreach (Documento doc in e.listaDocumentos)
             {
                 // Verifica si el documento actual es un libro
@@ -65,10 +64,8 @@ namespace Entidades
                         }
                     }
                 }
-                // Verifica si el documento actual es un mapa
                 else if (doc is Mapa mapa1)
                 {
-                    // Verifica si el documento dado también es un mapa
                     if (d is Mapa mapa2)
                     {
                         if (mapa1 == mapa2)
@@ -82,15 +79,26 @@ namespace Entidades
             return false;
         }
 
-    }
+        public static bool operator +(Escaner e, Documento d)
+        {
+            foreach(Documento doc in e.listaDocumentos)
+            {
+                if(doc != d || d.Estado == Paso.Inicio)
+                {
+                    e.listaDocumentos.Add(d);
+                }
+            }
+        }
 
-    enum Departamento
-    {
-        nulo, mapoteca, procesosTecnicos
-    }
 
-    enum TipoDoc
-    {
-        libro, mapa
+        public enum Departamento
+        {
+            nulo, mapoteca, procesosTecnicos
+        }
+
+        public enum TipoDoc
+        {
+            libro, mapa
+        }
     }
 }

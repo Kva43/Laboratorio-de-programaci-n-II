@@ -14,7 +14,7 @@ namespace Entidades
             this.numPaginas = numPaginas;
         }
 
-        public string ISBN { get => NumNormalizado; } 
+        public string ISBN { get => NumNormalizado; } // La propiedad ISBN en los libros muestra el NumNormalizado.
         public int NumPaginas { get => numPaginas; }
 
 

@@ -8,18 +8,8 @@ namespace Entidades
         private string autor;
         private string barcode;
         private Paso estado;
-        protected string numNormalizado;
+        protected string numNormalizado; // La propiedad de NumNormalizado solo debe poder verse desde las clases derivadas
         private string titulo;
-
-        public Documento(string titulo, string autor, int anio , string barcode)
-        {
-            this.titulo = titulo;
-            this.autor = autor;
-            this.anio = anio;
-            this.numNormalizado = " ";
-            this.barcode = barcode;
-            this.estado = Paso.Inicio;
-        }
 
         public Documento(string titulo, string autor, int anio, string numNormalizado, string barcode)
         {
@@ -28,7 +18,7 @@ namespace Entidades
             this.anio = anio;
             this.numNormalizado = numNormalizado;
             this.barcode = barcode;
-            this.estado = Paso.Inicio;
+            this.estado = Paso.Inicio; // El estado debe inicializarse como “Inicio”
         }
 
 
